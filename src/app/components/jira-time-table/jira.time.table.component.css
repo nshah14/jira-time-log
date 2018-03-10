@@ -1,0 +1,25 @@
+table
+{
+    border:solid black 2px;
+}
+th {
+    padding: 8px;
+    text-align: center;
+    font-size: 20px;
+    width: 500px;
+    border:solid black 2px;
+}
+td {
+    padding: 8px;
+    text-align: center;
+    font-size: 20px;
+    width: 500px;
+    border:solid black 2px;
+}
+
+div.results {
+    height: auto;
+    overflow: auto;
+    align-content: center;
+    min-height:100%
+}

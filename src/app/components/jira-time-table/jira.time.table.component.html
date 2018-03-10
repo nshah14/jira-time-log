@@ -1,0 +1,122 @@
+<div>
+    <div class="row">
+        <table>
+            <tbody>
+                <tr>
+                    <th>
+                        <label for="word">Enter jira search: </label>
+                    </th>
+                    <td>
+                        <input type="text" id="word" name="word" placeholder="Type jira number here..." [(ngModel)]="word">
+                    </td>
+
+                    <td>
+                        <input type="submit" value="GetJiraDetails" (click)="convert(word, false)">
+                        <input type="submit" value="GetProjectJiraDetails" (click)="retrieveAllJira(word, true)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="results" *ngIf="project">
+    <!-- <div *ngIf="project">{{project}}</div> -->
+    <!-- <ng-container *ngIf="project">{{project.issue}} -->
+        <div>
+    
+            <!-- <ul>
+                <label>Work log for Issue : {{issue.key}}</label>
+            </ul>
+            <ul>
+                <label>Labels used for the issue : {{issue.labels}}</label>
+            </ul>
+            <ul>
+                <label> Original Estimate for the issue : {{issue.originalEstimate}}</label>
+            </ul>
+            <ul>
+                <label> Remaining Estimate for the issue : {{issue.remainingEstimate}}</label>
+            </ul> -->
+            <!-- <label> {{issue.timespent}}</label>
+    <label> {{issue.work}}</label> -->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>User Who logged the time</th>
+                        <th>How much Time logged</th>
+                        <th>Start of log entry</th>
+                        <th>Label(s)</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let issue of project.issue">
+                    <tr *ngFor="let worklogs of issue.work">
+                    <td>{{issue.key}}</td>
+                    <td>{{worklogs.name}}</td>
+                    <td>{{worklogs.timespent}}</td>
+                    <td>{{worklogs.started}}</td>
+                    <td>{{issue.labels}}</td>
+                    <td>{{worklogs.created}}</td>
+                    <td>{{worklogs.updated}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <ul>
+        <li *ngFor="let issue of issues">{{issue.originalEstimate}}</li>
+    </ul> -->
+
+        </div>
+    <!-- </ng-container> -->
+</div>
+<div class="results" *ngIf="issue">
+        <!-- <div *ngIf="project">{{project}}</div> -->
+        <!-- <ng-container *ngIf="project">{{project.issue}} -->
+            <div>
+        
+                <!-- <ul>
+                    <label>Work log for Issue : {{issue.key}}</label>
+                </ul>
+                <ul>
+                    <label>Labels used for the issue : {{issue.labels}}</label>
+                </ul>
+                <ul>
+                    <label> Original Estimate for the issue : {{issue.originalEstimate}}</label>
+                </ul>
+                <ul>
+                    <label> Remaining Estimate for the issue : {{issue.remainingEstimate}}</label>
+                </ul> -->
+                <!-- <label> {{issue.timespent}}</label>
+        <label> {{issue.work}}</label> -->
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>User Who logged the time</th>
+                            <th>How much Time logged</th>
+                            <th>Start of log entry</th>
+                            <th>Label(s)</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let worklogs of issue.work">
+                        <td>{{issue.key}}</td>
+                        <td>{{worklogs.name}}</td>
+                        <td>{{worklogs.timespent}}</td>
+                        <td>{{worklogs.started}}</td>
+                        <td>{{issue.labels}}</td>
+                        <td>{{worklogs.created}}</td>
+                        <td>{{worklogs.updated}}</td>
+    
+                    </tbody>
+                </table>
+                <!-- <ul>
+            <li *ngFor="let issue of issues">{{issue.originalEstimate}}</li>
+        </ul> -->
+    
+            </div>
+        <!-- </ng-container> -->
+    </div>
