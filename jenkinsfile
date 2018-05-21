@@ -31,10 +31,10 @@ node('testing') {
     // }
       stage('Install Docker on Centos node'){
         echo 'Building docker image'
-        sh 'sudo yum install docker -y'
-        sh 'sudo yum remove docker docker-common docker-selinux docker-engine -y'
-        sh 'sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
-        sh 'sudo yum install docker-ce -y'
+        // sh 'sudo yum install docker -y'
+        // sh 'sudo yum remove docker docker-common docker-selinux docker-engine -y'
+        // sh 'sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
+        // sh 'sudo yum install docker-ce -y'
            /**
                
                docker-machine env
