@@ -47,6 +47,8 @@ node('testing') {
 
     stage('Build Docker'){
         echo 'Building docker image'
+        sh 'sudo systemctl start docker'
+        sh 'sudo systemctl status docker'
         sh 'sudo usermod -aG docker $(whoami)'
                
         // sh 'docker-machine env'
