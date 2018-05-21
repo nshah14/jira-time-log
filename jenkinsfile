@@ -47,7 +47,7 @@ node('testing') {
 
     stage('Build Docker'){
         echo 'Building docker image'
-           
+        sh 'sudo usermod -aG docker $(whoami)'
                
         // sh 'docker-machine env'
         sh ' sudo docker build -t nshah/jira-time-log .'
