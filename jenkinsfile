@@ -61,10 +61,9 @@ node('testing') {
 
     stage('Deploy'){
 
-         echo 'Push to Repo'
-         /**
-            docker run -p 3000:3000 -d nshah/piglatin
-         */
+         echo 'Run docker image'
+         sh 'sudo docker run -p 3001:3001 -d nshah/jira-time-log .'
+         sh 'sudo wget 127.0.0.1:3001/'
 
     }
 
